@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ubuntu1804:
+    build: .
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/code
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    links:
+    - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
